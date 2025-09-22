@@ -1,5 +1,5 @@
 [tool.poetry]
 name = "calculadora-gitflow"
-version = "1.0.0"
+version = "1.1.1"
 description = "Uma calculadora simples para demonstrar o GitFlow."
 authors = ["Yohann Gusso"]
