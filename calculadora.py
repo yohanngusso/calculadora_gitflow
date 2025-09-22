@@ -1,5 +1,3 @@
-# calculadora.py
-
 def somar(a, b):
     """Esta função soma dois números. Corrigido para lidar com inteiros."""
     return a + b
@@ -18,12 +16,44 @@ def dividir(a, b):
         raise ValueError("Não é possível dividir por zero.")
     return a / b
 
-if __name__ == "__main__":
-    print("Calculadora Simples")
-    # Testando as funções existentes
-    print(f"Soma: 5 + 3 = {somar(5, 3)}")
-    print(f"Subtração: 10 - 4 = {subtrair(10, 4)}")
+def exibir_menu():
+    """Exibe o menu de opções para o usuário."""
+    print("\n--- Calculadora Interativa ---")
+    print("Escolha a operação:")
+    print("1: Somar")
+    print("2: Subtrair")
+    print("3: Multiplicar")
+    print("4: Dividir")
+    print("0: Sair")
 
-    # Testando as novas funções
-    print(f"Multiplicação: 6 * 7 = {multiplicar(6, 7)}")
-    print(f"Divisão: 20 / 5 = {dividir(20, 5)}")
+# A partir daqui é o nosso novo loop principal
+if __name__ == "__main__":
+    while True:
+        exibir_menu()
+        escolha = input("Digite o número da sua opção: ")
+
+        if escolha == '0':
+            print("Encerrando a calculadora. Até mais!")
+            break
+
+        if escolha not in ['1', '2', '3', '4']:
+            print("Opção inválida! Tente novamente.")
+            continue
+
+        try:
+            num1 = float(input("Digite o primeiro número: "))
+            num2 = float(input("Digite o segundo número: "))
+
+            if escolha == '1':
+                print(f"Resultado: {num1} + {num2} = {somar(num1, num2)}")
+            elif escolha == '2':
+                print(f"Resultado: {num1} - {num2} = {subtrair(num1, num2)}")
+            elif escolha == '3':
+                print(f"Resultado: {num1} * {num2} = {multiplicar(num1, num2)}")
+            elif escolha == '4':
+                print(f"Resultado: {num1} / {num2} = {dividir(num1, num2)}")
+
+        except ValueError as e:
+            print(f"Erro: {e}")
+        except Exception as e:
+            print(f"Ocorreu um erro inesperado: {e}")
