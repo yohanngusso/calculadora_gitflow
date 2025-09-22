@@ -1,5 +1,5 @@
 def somar(a, b):
-    """Esta função soma dois números."""
+    """Esta função soma dois números. Corrigido para lidar com inteiros."""
     return a + b
 
 def subtrair(a, b):
